@@ -35,7 +35,7 @@ elif app_mode == 'Prediction':
 
     st.subheader('Sir/Mme , YOU need to fill all necessary informations in order '
                  'to get a reply to your loan request !')
-    st.sidebar.header("Informations about the client :")
+    st.sidebar.header("Information about the client :")
     gender_dict = {"Male": 1, "Female": 2}
     feature_dict = {"No": 1, "Yes": 2}
     edu = {'Graduate': 1, 'Not Graduate': 2}
@@ -106,7 +106,7 @@ elif app_mode == 'Prediction':
         with open("media/green-cola-no.gif", "rb") as file:
             contents = file.read()
             data_url_no = base64.b64encode(contents).decode("utf-8")
-        loaded_model = pickle.load(open('Random_Forest.sav', 'rb'))
+        loaded_model = pickle.load(open('data/rf_loan_predict.sav', 'rb'))
         prediction = loaded_model.predict(single_sample)
         if prediction[0] == 0:
             st.error('According to our Calculations, you will not get the loan from Bank')
